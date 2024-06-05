@@ -1,3 +1,2 @@
 #!/usr/bin/env ruby
-# checks for matching cases
-puts ARGV[0].scan(/^[1234567890]{10}$/).join
+puts ARGV[0].scan(/^\d{10}$/).join
