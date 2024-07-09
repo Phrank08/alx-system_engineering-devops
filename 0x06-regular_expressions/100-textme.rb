@@ -1,5 +1,3 @@
 #!/usr/bin/env ruby
-
-sender, receiver, flags = ARGV[0].match(/from:(\+?\w+)?\].*to:(\+?\w+)?\].*flags?:([-:\d]+)?/).captures
-
-puts "#{sender},#{receiver},#{flags}"
+value = ARGV[0].scan(/\[from:(\w+|\+?\d+)\] \[to:(\w+|\+?\d+)\] \[flags:(\-?\d:\-?\d:\-?\d:\-?\d:\-?\d)\]/)
+puts "#{value[0][0]},#{value[0][1]},#{value[0][2]}"
