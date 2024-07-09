@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 #Display pid of all bash processes
-
-
-pgrep bash -l
+pgrep -l bash
