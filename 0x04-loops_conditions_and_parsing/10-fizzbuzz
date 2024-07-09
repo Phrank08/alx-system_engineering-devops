@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-#A Bash script that displays numbers from 1 to 100
-
-for (( i=1; i<=100; i++))
+# This script displays number from 1 to 100
+for ((num=1; num <= 100; num++));
 do
-    if (( i % 3 == 0 )) && (( i % 5 == 0 )) ; then
-        echo "FizzBuzz"
-    elif (( i % 3 == 0 )) ; then
-        echo "Fizz"
-    elif (( i % 5 == 0 )) ; then
-        echo "Buzz"
+    if (( num % 3 == 0 )) && (( num % 5 == 0 ));
+        then 
+            echo "FizzBuzz"
+    elif (( num % 3 == 0 ));
+        then
+            echo "Fizz"
+    elif (( num % 5 == 0 ));
+        then
+            echo "Buzz"
     else
-        echo "$i"
+        echo "$num"
     fi
 done
-    

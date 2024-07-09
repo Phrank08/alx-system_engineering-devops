@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-#read and cut
+# read file
 
-while read -r line;
+while IFS=: read -r username _ userid _ homedir _;
 do
-    echo "$line" | cut -d ":" -f 1,3,6
-done < /etc/passwd
+    # aboslute=$(readlink -f "$homedir")
+    echo "$username:$userid:$homedir"
+done < "/etc/passwd"
