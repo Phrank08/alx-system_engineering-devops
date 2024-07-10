@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# Install and Configure HAproxy
-sudo apt update -y
-sudo apt install haproxy -y
-echo "ENABLED=1" >> /etc/default/haproxy
-echo "frontend http_front
-        bind *:80
-        mode http
-        default_backend http_back
+# creating a load balancing
+sudo apt update
+sudo apt install -y haproxy
+sudo systemctl start haproxy
+sudo systemctl enable haproxy
 
-backend http_back
-        balance roundrobin
-        option forwardfor
-        option httpclose
-        server 933-web-01 18.233.67.176:80 check
-        server 933-web-02 35.175.135.215:80 check" >> /etc/haproxy/haproxy.cfg
-service haproxy restart
+# Creating a backup of the configuration file
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+
+# Appending frontend configuration
+sudo sed -i "$ a\\\n\nfrontend myfrontend\n\tbind :80\n\tdefault_backend myservers" /etc/haproxy/haproxy.cfg
+
+# Appending backend configuration
+sudo sed -i "$ a\\\n\nbackend myservers\n\tserver server1 107.23.92.1:80 check\n\tserver server2 100.26.249.41:80 check" /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
