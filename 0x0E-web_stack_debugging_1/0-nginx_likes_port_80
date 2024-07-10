@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Debug Nginx server to listen to port
-sudo rm /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
