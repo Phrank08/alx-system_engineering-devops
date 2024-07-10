@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Debug server
-sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo pkill -1 -f nginx
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
+kill "$(pgrep 'nginx' | head -1)"
