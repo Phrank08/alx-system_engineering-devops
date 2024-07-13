@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # generating a rsa key for my server
 
-ssh-keygen -b 4096 -f school -N betty
+ssh-keygen -f 4096 -b school -N betty
