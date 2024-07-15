@@ -1,6 +1,3 @@
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License, version 2.0,
-# as published by the Free Software Foundation.
 #
 # This program is also distributed with certain software (including
 # but not limited to OpenSSL) that is licensed under separate terms,
@@ -25,15 +22,18 @@
 # http://dev.mysql.com/doc/mysql/en/server-system-variables.html
 
 [mysqld]
-binlog_do_db    = tyrell_corp
-relay-log       = /var/log/mysql/mysql-relay-bin.log
-log_bin         = /var/log/mysql/mysql-bin.log
-server-id       = 2
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
 datadir         = /var/lib/mysql
 log-error       = /var/log/mysql/error.log
+server-id       = 2
+replicate-do-db = tyrell_corp
 # By default we only accept connections from localhost
-bind-address    = 127.0.0.1
+# bind-address  = 127.0.0.1
+# Disabling symbolic-links is recommended to prevent assorted security risks
+server-id       = 2
+log_bin         = /var/log/mysql/mysql-bin.log
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
+binlog_do_db    = tyrell_corp
+relay-log       = /var/log/mysql/mysql-relay-bin.log
