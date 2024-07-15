@@ -1,2 +1,5 @@
-ln: failed to create symbolic link '/etc/nginx/sites-enabled/default': No such file or directory
-Failed to restart nginx.service: Unit nginx.service not found.
+#!/usr/bin/env bash
+# configures a server to listening on port 80 of all servers active IPv4 IPs
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+echo "" | sudo dd status=none of=/run/nginx.pid
